@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 32px;
+  background-color: var(--color-bg-main);
+}
+
+.signUp {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  padding: 8px 16px;
+}
+
+.signUp:hover {
+  color: var(--color-text-primary);
+}
+
+.logIn {
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 12px 32px;
+  border-radius: 500px;
+}
+
+.logIn:hover {
+  transform: scale(1.04);
+}
