@@ -1,17 +1,17 @@
-import { FaSpotify } from 'react-icons/fa';
-import { IoHome, IoSearch, IoLibrary, IoAdd, IoHeart } from 'react-icons/io5';
-import SidebarLink from './SidebarLink';
-import styles from './Sidebar.module.css';
+import { FaSpotify } from "react-icons/fa";
+import { IoHome, IoSearch, IoLibrary, IoAdd, IoHeart } from "react-icons/io5";
+import SidebarLink from "./SidebarLink";
+import styles from "./Sidebar.module.css";
 
 const NAV_ITEMS = [
-  { key: 'home', label: 'Home', icon: <IoHome /> },
-  { key: 'search', label: 'Search', icon: <IoSearch /> },
-  { key: 'library', label: 'Your Library', icon: <IoLibrary /> },
+  { key: "home", label: "Home", icon: <IoHome />, path: "/" },
+  { key: "search", label: "Search", icon: <IoSearch />, path: "/search" },
+  { key: "library",label: "Your Library",icon: <IoLibrary />,path: "/library",},
 ];
 
-function Sidebar({ activeTab, onNavigate , isOpen }) {
+function Sidebar({ activeTab, onNavigate, isOpen }) {
   return (
-    <aside className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
+    <aside className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
       <div className={styles.logo}>
         <FaSpotify size={32} />
         <span>Spotify</span>
@@ -23,8 +23,8 @@ function Sidebar({ activeTab, onNavigate , isOpen }) {
             key={item.key}
             icon={item.icon}
             label={item.label}
-            active={activeTab === item.key}
-            onClick={() => onNavigate(item.key)}
+            to={item.path}
+            onClick={onNavigate}
           />
         ))}
       </nav>
@@ -39,8 +39,8 @@ function Sidebar({ activeTab, onNavigate , isOpen }) {
             </span>
           }
           label="Create Playlist"
-          active={activeTab === 'create-playlist'}
-          onClick={() => onNavigate('create-playlist')}
+          active={activeTab === "create-playlist"}
+          onClick={() => onNavigate("create-playlist")}
         />
         <SidebarLink
           icon={
@@ -49,8 +49,8 @@ function Sidebar({ activeTab, onNavigate , isOpen }) {
             </span>
           }
           label="Liked Songs"
-          active={activeTab === 'liked-songs'}
-          onClick={() => onNavigate('liked-songs')}
+          active={activeTab === "liked-songs"}
+          onClick={() => onNavigate("liked-songs")}
         />
       </div>
 

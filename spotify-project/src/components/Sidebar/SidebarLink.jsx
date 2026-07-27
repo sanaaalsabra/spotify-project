@@ -1,13 +1,19 @@
+import { NavLink } from 'react-router-dom';
 import styles from './SidebarLink.module.css';
 
-function SidebarLink({icon, label,active,onClick}){
-    return (
-        <button className={`${styles.link} ${active ? styles.active : ''}`}onClick={onClick}>
-            <span className={styles.icon}>{icon}</span>
-            <span className={styles.label}>{label}</span>
-            
-        </button>
-    );
+function SidebarLink({ icon, label, to, onClick }) {
+  return (
+    <NavLink
+      to={to}
+      onClick={onClick}
+      className={({ isActive }) =>
+        `${styles.link} ${isActive ? styles.active : ''}`
+      }
+    >
+      <span className={styles.icon}>{icon}</span>
+      <span className={styles.label}>{label}</span>
+    </NavLink>
+  );
 }
 
 export default SidebarLink;
